@@ -1,0 +1,21 @@
+Codigo,color,descripcion,39,40,41,42,43,44,45
+1067,naut,n�utico sin cordon,2,2,3,1,0,2,2
+1067,azul,n�utico sin cordon,3,4,0,1,0,1,2
+1069,naut,nautico con cordon,1,2,3,2,1,2,2
+1069,azul,nautico con cordon,3,3,1,4,0,1,1
+1711,negro,zapatilla suela goma,3,0,2,0,0,0,0
+1711,Mustang,zapatilla suela goma,3,0,0,2,0,0,0
+1794,negro,bota,0,0,0,0,1,1,1
+1794,marron,bota,0,0,0,1,2,0,0
+5300,Suela,de punta acharolados,4,1,1,4,1,1,0
+5300,azul,de punta acharolados,3,0,0,0,2,2,1
+5700,negro,suela goma punta de goma,1,0,1,2,2,1,2
+5702,Negro,suela goma sin cordon,0,0,1,0,1,1,1
+5702,marron,suela goma sin cordon,2,4,3,2,2,2,2
+5703,negro,suela goma con cordon,1,0,0,2,3,1,1
+5703,marron,suela goma con cordon,0,1,1,1,2,2,2
+5900,negro,suela cuero de punta,3,3,1,0,0,3,4
+5900,marron,suela cuero de punta,0,0,0,0,1,0,0
+5900,habano,suela cuero de punta,3,2,1,1,0,1,0
+5903,negro,de punta acharolados,0,4,0,0,1,0,2
+5903,marron,de punta acharolados,2,4,0,1,0,1,2
