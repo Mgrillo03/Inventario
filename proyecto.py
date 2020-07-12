@@ -1,6 +1,6 @@
 import pandas as pd
 import os 
-##Funciones
+##Funciones Del Proyecto
 def clear():
     os.system('cls')
 def convertir_int(df,rango):
