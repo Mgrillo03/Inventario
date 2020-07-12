@@ -1,2 +1,2 @@
 # Inventario
-Sistema de prueba  
+Sistema de prueba para ver y editar un inventario
