@@ -38,30 +38,56 @@ def opciones(a):
     if a == 1:
         print('1- Ver otro articulo')
         print('2- Volver al menu')
-        return int(input('Opcion(1,2): '))
-    
+        return int(input('Opcion(1,2): '))   
+def lista_articulos(df):
+    """ 
+    Recibe un data frame y devuelve una lista con los articulos sin duplicados
+    df dataFarem
+    reresa lista - lista de strings
+    """
+    lista = df.iloc[:,0]
+    lista = lista.drop_duplicates()
+    return list(lista)
+
 def ver_inventario(df):
     """
     Realiza el procedimiento de la opcion ver inventario
     df dataFrame
+    regresa vista en pantalla del inventario
     """
     clear()
-    lista = df.iloc[:,0]
-    lista = lista.drop_duplicates()
-    lista = list(lista)
+    lista = lista_articulos(df)
     print ('Seleccione el articulo que desea ver ')
     imprimir_lista(lista)
     opcion = int(input('Opcion: '))
     opcion -= 1
     clear()
     print(df[df.iloc[:,0] == lista[opcion]])
-    print('Oprima enter tecla para continuar')
+    print('Oprima enter para continuar')
     input()
     opcion = opciones(1)
     if opcion == 1:
         ver_inventario(df)
     if opcion == 2:
         menu(df)
+
+def modificar_inventario(df):
+    """
+    Funcion para modificar un data frame con los datos que ingrese el usuario
+    recibe df dataFrame con los datos
+    regresa df_m dataFrame modificado
+    """
+    clear()
+    lista = lista_articulos(df)
+    print("Seleccione el articulo que desea modificar :")
+    imprimir_lista(lista)
+    opcion = int(input("Opcion: "))
+    opcion -= 1
+    clear()
+    print(df[df.iloc[:,0] == lista[opcion]])
+    input()
+    return df
+
 
 def menu(df):
     """
@@ -73,7 +99,10 @@ def menu(df):
     opcion = opciones(0)
     if opcion == 1:
         ver_inventario(df)
-    elif opcion == 3:
+    elif opcion == 2:
+        df = modificar_inventario(df)
+        menu(df)
+    else: 
         clear()
         print('Esta a punto de salir, Seguro que desea hacerlo')
         a = input('[y/n] ')
@@ -91,6 +120,7 @@ def menu(df):
         else:
             menu(df)
 
+## Cuperpo del programa
 ##Leer data
 stock_zapatos = pd.read_csv('stock_zapatos.csv')
 stock_general = pd.read_csv('stock_general.csv')
