@@ -79,12 +79,13 @@ def menu(df):
         a = input('[y/n] ')
         if a == 'y':
             clear()
-            print('SEGUROOOOOO??')
+            print('SEGUROOOOOO?? ASEGURATE BIEN')
             a = input('[y/n] ')
             if a == 'y':
                 clear()
                 print('Bueno, esta bien.')
                 print('Chaitooo')
+                input()
             else:
                 menu(df)
         else:
