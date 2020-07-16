@@ -13,6 +13,29 @@ def convertir_int(df,rango):
         df.iloc[:,i] = df.iloc[:,i].apply(int)
 
     return df
+def salir(df):
+    """
+    MENU de preguntas y respuestas para salir del programa
+    df el DataFrame con la data - Lee las entradas del usuario
+    Termina el programa si se cumplen las condiondes o regresa al menu
+    """
+    clear()
+    print('Esta a punto de salir, Seguro que desea hacerlo')
+    a = input('[y/n] ')
+    if a == 'y':
+        clear()
+        print('SEGUROOOOOO?? ASEGURATE BIEN')
+        a = input('[y/n] ')
+        if a == 'y':
+            clear()
+            print('Bueno, esta bien.')
+            print('Chaitooo')
+            input()
+            clear()
+        else:
+            menu(df)
+    else:
+        menu(df)
 def imprimir_lista(lista):
     """
     Imprime una lista elemento por elemento
@@ -39,16 +62,15 @@ def opciones(a):
         print('1- Ver otro articulo')
         print('2- Volver al menu')
         return int(input('Opcion(1,2): '))   
-def lista_articulos(df):
+def lista_articulos(df,pos):
     """ 
     Recibe un data frame y devuelve una lista con los articulos sin duplicados
-    df dataFarem
+    df dataFarem,  pos integer con la columna a modificar
     reresa lista - lista de strings
     """
-    lista = df.iloc[:,0]
+    lista = df.iloc[:,pos]
     lista = lista.drop_duplicates()
     return list(lista)
-
 def ver_inventario(df):
     """
     Realiza el procedimiento de la opcion ver inventario
@@ -56,7 +78,7 @@ def ver_inventario(df):
     regresa vista en pantalla del inventario
     """
     clear()
-    lista = lista_articulos(df)
+    lista = lista_articulos(df,0)
     print ('Seleccione el articulo que desea ver ')
     imprimir_lista(lista)
     opcion = int(input('Opcion: '))
@@ -70,7 +92,6 @@ def ver_inventario(df):
         ver_inventario(df)
     if opcion == 2:
         menu(df)
-
 def modificar_inventario(df):
     """
     Funcion para modificar un data frame con los datos que ingrese el usuario
@@ -78,14 +99,28 @@ def modificar_inventario(df):
     regresa df_m dataFrame modificado
     """
     clear()
-    lista = lista_articulos(df)
+    lista_art = lista_articulos(df,0)
+    ##SELECCION ARTICULO
     print("Seleccione el articulo que desea modificar :")
-    imprimir_lista(lista)
-    opcion = int(input("Opcion: "))
-    opcion -= 1
+    imprimir_lista(lista_art)
+    opcion_art = int(input("Opcion: "))
+    opcion_art -= 1
     clear()
-    print(df[df.iloc[:,0] == lista[opcion]])
+    print(df[df.iloc[:,0] == lista_art[opcion_art]])
     input()
+    clear()
+    ##SELECCION DEL COLOR 
+    ##TODo SUPER MALL
+    ###print("Seleccione el Color: ")
+    ##lista_color = lista_articulos(df,1)
+    ##imprimir_lista(lista_color)
+    ##opcion_color = int(input("Opcion: "))
+    ##opcion_color -= 1
+    ##clear()
+    ##print("Seleccione el Talle: ")
+    ##print(df[(df.loc[:,0] == lista_art[opcion_art] and df.loc[:,1]== lista_color [opcion_color]), :])
+    
+    
     return df
 
 
@@ -103,23 +138,7 @@ def menu(df):
         df = modificar_inventario(df)
         menu(df)
     else: 
-        clear()
-        print('Esta a punto de salir, Seguro que desea hacerlo')
-        a = input('[y/n] ')
-        if a == 'y':
-            clear()
-            print('SEGUROOOOOO?? ASEGURATE BIEN')
-            a = input('[y/n] ')
-            if a == 'y':
-                clear()
-                print('Bueno, esta bien.')
-                print('Chaitooo')
-                input()
-            else:
-                menu(df)
-        else:
-            menu(df)
-
+        salir(df)
 ## Cuperpo del programa
 ##Leer data
 stock_zapatos = pd.read_csv('stock_zapatos.csv')
