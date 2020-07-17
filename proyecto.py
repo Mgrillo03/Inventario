@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import os 
 ##Funciones Del Proyecto
 def clear():
@@ -106,19 +107,18 @@ def modificar_inventario(df):
     opcion_art = int(input("Opcion: "))
     opcion_art -= 1
     clear()
-    print(df[df.iloc[:,0] == lista_art[opcion_art]])
-    input()
+    df_2 = df[df.iloc[:,0] == lista_art[opcion_art]]
+    print(df.iloc[0,0])
+    print(df_2.iloc[:,1:])
+    print("Seleccione el Color: ")
+    opcion_color = int(input('Color : '))
     clear()
-    ##SELECCION DEL COLOR 
-    ##TODo SUPER MALL
-    ###print("Seleccione el Color: ")
-    ##lista_color = lista_articulos(df,1)
-    ##imprimir_lista(lista_color)
-    ##opcion_color = int(input("Opcion: "))
-    ##opcion_color -= 1
-    ##clear()
-    ##print("Seleccione el Talle: ")
-    ##print(df[(df.loc[:,0] == lista_art[opcion_art] and df.loc[:,1]== lista_color [opcion_color]), :])
+    print('Seleccione el talle a cambiar')
+    ##ERROR
+    ##print(df_2.iloc[[opcion_color]])
+    ##talle = input('Talle: ')    
+
+
     
     
     return df
