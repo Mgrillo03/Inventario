@@ -108,15 +108,15 @@ def modificar_inventario(df):
     opcion_art -= 1
     clear()
     df_2 = df[df.iloc[:,0] == lista_art[opcion_art]]
+    df_2 = df_2.reset_index()
     print(df.iloc[0,0])
     print(df_2.iloc[:,1:])
     print("Seleccione el Color: ")
     opcion_color = int(input('Color : '))
     clear()
     print('Seleccione el talle a cambiar')
-    ##ERROR
-    ##print(df_2.iloc[[opcion_color]])
-    ##talle = input('Talle: ')    
+    print(df_2.iloc[[opcion_color]])
+    talle = input('Talle: ')    
 
 
     
