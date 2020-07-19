@@ -23,11 +23,13 @@ def salir(df):
     clear()
     print('Esta a punto de salir, Seguro que desea hacerlo')
     a = input('[y/n] ')
-    if a == 'y':
+    a = a.capitalize()
+    if a == 'Y':
         clear()
         print('SEGUROOOOOO?? ASEGURATE BIEN')
         a = input('[y/n] ')
-        if a == 'y':
+        a = a.capitalize()
+        if a == 'Y':
             clear()
             print('Bueno, esta bien.')
             print('Chaitooo')
@@ -117,6 +119,8 @@ def modificar_inventario(df):
     cond = True
     while cond : 
         clear()
+        df_2 = df[df.iloc[:,0] == lista_art[opcion_art]]
+        df_2 = df_2.reset_index()
         print('Seleccione el talle a cambiar')
         print(df_2.iloc[opcion_color])
         talle = input('Talle: ')
@@ -128,9 +132,11 @@ def modificar_inventario(df):
             print() 
             print()
             print(df.loc[fila[0],:])
-            print('Dale al enter para continuar...') 
-            input()
-            cond = False
+            print() 
+            resp = input('Desea Modificar Otro talle?[y/n]   ')
+            resp = resp.capitalize()
+            if resp == 'N':
+                cond = False
         else: 
             clear()
             print('Escribe bien el talle menor')
@@ -138,8 +144,6 @@ def modificar_inventario(df):
 
     
     return df
-
-
 def menu(df):
     """
     Funcion para crear un menu para navegar facilmente dentro  del stock
