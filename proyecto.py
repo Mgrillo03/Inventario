@@ -2,6 +2,10 @@ import pandas as pd
 import numpy as np
 import os 
 ##Funciones Del Proyecto
+def cargar_cambios(df):
+    ##Hace un pull de github y carga los posibles cambios del inventario en elDataFrame
+    ## Leer inventario en dataFrame
+    pass
 def commit_cambios(mensage = 'Commit sin mensaje'):
     """ 
     Hace un git commit con los cambios del programa
@@ -13,13 +17,13 @@ def commit_cambios(mensage = 'Commit sin mensaje'):
     clear()
     if desicion.upper() == 'Y':
         os.system('git pull origin master')
+        ##Aqui habria que escribir el csv para subirlo actualizado
         os.system(f'git commit -am "{mensage}"')
         os.system('git push origin master')
         os.system('git status')
         input('Pulsa enter para continuar')
     else: 
         input('Otro dia sera...')    
-
 def clear():
     os.system('cls')
 def convertir_int(df,rango):
