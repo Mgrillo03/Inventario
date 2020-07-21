@@ -2,6 +2,18 @@ import pandas as pd
 import numpy as np
 import os 
 ##Funciones Del Proyecto
+def commit_cambios(mensage = 'Commi sin mensaje'):
+    """ 
+    Hace un git commit con los cambios del programa
+    mensaje string con el mensaje del commit
+    regresa print con el estado
+    """
+    os.system('git pull origin master')
+    os.system(f'git commit -am "{mensage}"')
+    os.system('git push origin master')
+    os.system('git status')
+    
+
 def clear():
     os.system('cls')
 def convertir_int(df,rango):
@@ -59,7 +71,8 @@ def opciones(a):
         print('Escoge una opcion')
         print('1- Ver Stock')
         print('2- Cambiar Stock')
-        print('3- Salir')
+        print('3- Guardar Cambios')
+        print('4- Salir')
         return int(input('Opcion(1,2,3): '))
     if a == 1:
         print('1- Ver otro articulo')
@@ -156,6 +169,11 @@ def menu(df):
         ver_inventario(df)
     elif opcion == 2:
         df = modificar_inventario(df)
+        menu(df)
+    elif opcion == 3:
+        clear()
+        mensaje = input('ingrese el mensaje del commit')
+        commit_cambios(mensage = mensaje)
         menu(df)
     else: 
         salir(df)
