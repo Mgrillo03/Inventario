@@ -159,16 +159,19 @@ def menu(df):
         menu(df)
     else: 
         salir(df)
-## Cuperpo del programa
-##Leer data
-stock_zapatos = pd.read_csv('stock_zapatos.csv')
-stock_general = pd.read_csv('stock_general.csv')
-## Eliminar todos los NaN
-stock_general = stock_general.fillna(0)
-stock_zapatos = stock_zapatos.fillna(0)
 
-stock_general = convertir_int(stock_general,range(2,8))
+if __name__ == "__main__":
+        
+    ## Cuperpo del programa
+    ##Leer data
+    stock_zapatos = pd.read_csv('stock_zapatos.csv')
+    stock_general = pd.read_csv('stock_general.csv')
+    ## Eliminar todos los NaN
+    stock_general = stock_general.fillna(0)
+    stock_zapatos = stock_zapatos.fillna(0)
+
+    stock_general = convertir_int(stock_general,range(2,8))
 
 
-#print(stock_general)
-menu(stock_general)
+    #print(stock_general)
+    menu(stock_general)
