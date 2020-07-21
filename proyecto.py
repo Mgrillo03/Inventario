@@ -2,10 +2,12 @@ import pandas as pd
 import numpy as np
 import os 
 ##Funciones Del Proyecto
-def cargar_cambios(df):
+def cargar_cambios():
     ##Hace un pull de github y carga los posibles cambios del inventario en elDataFrame
     ## Leer inventario en dataFrame
-    pass
+    os.system('git pull origin master')
+    df = pd.read_csv('stock_general.csv')
+
 def commit_cambios(mensage = 'Commit sin mensaje'):
     """ 
     Hace un git commit con los cambios del programa
