@@ -8,11 +8,17 @@ def commit_cambios(mensage = 'Commit sin mensaje'):
     mensaje string con el mensaje del commit
     regresa print con el estado
     """
-    os.system('git pull origin master')
-    os.system(f'git commit -am "{mensage}"')
-    os.system('git push origin master')
-    os.system('git status')
-    
+    clear()
+    desicion = input('Seguro que desea guardar los cambios?[y/n]  ')
+    clear()
+    if desicion.upper() == 'Y':
+        os.system('git pull origin master')
+        os.system(f'git commit -am "{mensage}"')
+        os.system('git push origin master')
+        os.system('git status')
+        input('Pulsa enter para continuar')
+    else: 
+        input('Otro dia sera...')    
 
 def clear():
     os.system('cls')
