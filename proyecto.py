@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import os 
 ##Funciones Del Proyecto
-def commit_cambios(mensage = 'Commi sin mensaje'):
+def commit_cambios(mensage = 'Commit sin mensaje'):
     """ 
     Hace un git commit con los cambios del programa
     mensaje string con el mensaje del commit
@@ -73,7 +73,7 @@ def opciones(a):
         print('2- Cambiar Stock')
         print('3- Guardar Cambios')
         print('4- Salir')
-        return int(input('Opcion(1,2,3): '))
+        return int(input('Opcion(1,2,3,4): '))
     if a == 1:
         print('1- Ver otro articulo')
         print('2- Volver al menu')
@@ -172,7 +172,7 @@ def menu(df):
         menu(df)
     elif opcion == 3:
         clear()
-        mensaje = input('ingrese el mensaje del commit')
+        mensaje = input('ingrese el mensaje del commit:  ')
         commit_cambios(mensage = mensaje)
         menu(df)
     else: 
