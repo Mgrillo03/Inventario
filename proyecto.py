@@ -27,7 +27,7 @@ def commit_cambios(mensage = 'Commit sin mensaje'):
     else: 
         input('Otro dia sera...')    
 def clear():
-    os.system('cls')
+    os.system('clear')
 def convertir_int(df,rango):
     """
     Funcion  para convertir en integer columnas de un data frame
