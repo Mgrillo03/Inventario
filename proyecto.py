@@ -25,9 +25,13 @@ def commit_cambios(mensage = 'Commit sin mensaje'):
         os.system('git status')
         input('Pulsa enter para continuar')
     else: 
-        input('Otro dia sera...')    
+        input('Otro dia sera...')
+        
+
 def clear():
     os.system('cls')
+
+
 def convertir_int(df,rango):
     """
     Funcion  para convertir en integer columnas de un data frame
@@ -38,6 +42,8 @@ def convertir_int(df,rango):
         df.iloc[:,i] = df.iloc[:,i].apply(int)
 
     return df
+
+
 def salir(df):
     """
     MENU de preguntas y respuestas para salir del programa
@@ -71,6 +77,8 @@ def imprimir_lista(lista):
     """
     for element in lista:
         print(f'{lista.index(element)+1}-  {element}')
+
+        
 def opciones(a):
     """ 
     Imprime en pantalla todas las opciones que puede realizar el menu
@@ -89,7 +97,9 @@ def opciones(a):
     if a == 1:
         print('1- Ver otro articulo')
         print('2- Volver al menu')
-        return int(input('Opcion(1,2): '))   
+        return int(input('Opcion(1,2): '))
+
+
 def lista_articulos(df,pos):
     """ 
     Recibe un data frame y devuelve una lista con los articulos sin duplicados
@@ -99,6 +109,8 @@ def lista_articulos(df,pos):
     lista = df.iloc[:,pos]
     lista = lista.drop_duplicates()
     return list(lista)
+
+
 def ver_inventario(df):
     """
     Realiza el procedimiento de la opcion ver inventario
@@ -120,6 +132,8 @@ def ver_inventario(df):
         ver_inventario(df)
     if opcion == 2:
         menu(df)
+
+
 def modificar_inventario(df):
     """
     Funcion para modificar un data frame con los datos que ingrese el usuario
